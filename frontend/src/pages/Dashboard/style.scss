@@ -1,0 +1,35 @@
+@import "@/assets/scss/_main";
+
+.main {
+  height: 100vh;
+  max-width: 100vw;
+  display: flex;
+
+  .content-right {
+    width: 100vw;
+    height: 100vh;
+    background-color: $gray;
+  }
+
+  .sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: $purple;
+    display: flex;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 3.75rem;
+
+    padding: 0px 20px;
+
+    background: $purple-dark;
+  }
+
+  .pages {
+    width: 100%;
+    height: calc(100% - 60px);
+  }
+  
+}
