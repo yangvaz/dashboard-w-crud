@@ -54,16 +54,22 @@
       <div class="mt-5">
         <div class="row">
           <div class="col-12 col-md-6">
-            <ListsComponent :data="data" description="Clientes" :columns="['Nome', 'Email']" />
+            <ListsComponent
+              :data="despesas"
+              description="Despesas"
+              :columns="['Nome', 'Despesa', 'Custo']"
+            />
           </div>
 
           <div class="col-12 col-md-6">
-            <ListsComponent :data="data" description="Produtos" :columns="['Nome', 'Valor']" />
+            <ListsComponent
+              :data="usuarios"
+              description="Usuários"
+              :columns="['Nome', 'Senha']"
+            />
           </div>
-
         </div>
       </div>
-
     </div>
   </DashboardComponent>
 </template>
@@ -73,28 +79,30 @@ import DashboardComponent from "../Dashboard/DashboardComponent";
 import CardsComponent from "../../components/CardsComponent";
 import ListsComponent from "../../components/ListsComponent";
 
-const axios = require('axios');
+const axios = require("axios");
 
 export default {
-  name: 'HomeComponent',
+  name: "HomeComponent",
   data() {
     return {
-      data: []
-    }
+      despesas: [],
+      usuarios: [],
+    };
   },
   mounted() {
     this.getData();
   },
   methods: {
     async getData() {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+      const response = await axios.get("/");
 
-      if(response.status === 200) {
-        this.data = response.data;
-      }else {
-        console.error('Ocorreu um erro ao acessar a API');
+      if (response.status === 200) {
+        this.despesas = response.data.despesas;
+        this.usuarios = response.data.usuarios;
+      } else {
+        console.error("Ocorreu um erro ao acessar a API");
       }
-    }
+    },
   },
   components: {
     DashboardComponent,

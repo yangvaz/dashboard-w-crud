@@ -14,18 +14,22 @@
             <th scope="col">#</th>
             <th scope="col">{{ columns[0] }}</th>
             <th scope="col">{{ columns[1] }}</th>
+            <th scope="col">{{ columns[2] }}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in data" :key="user.id">
+          <tr v-for="data in data" :key="data.id">
             <th scope="row">
-              <span class="userDetails"> {{ user.id }} </span>
+              <span class="userDetails"> {{ data.id }} </span>
             </th>
             <td>
-              <span class="userDetails"> {{ user.name }} </span>
+              <span class="userDetails"> {{ data.nomeUsuario }} </span>
             </td>
             <td>
-              <span class="userDetails"> {{ user.email }} </span>
+              <span class="userDetails"> {{ data.descricaoDespesa }} </span>
+            </td>
+            <td>
+              <span class="userDetails"> {{ data.custoDespesa }} </span>
             </td>
           </tr>
         </tbody>
@@ -38,9 +42,9 @@
 export default {
   name: "ListsComponent",
   props: {
-    data: Array,
+    data: {},
     description: String,
-    columns: [],
+    columns: {},
   },
 };
 </script>
