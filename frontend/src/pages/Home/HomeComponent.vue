@@ -94,13 +94,12 @@ export default {
   },
   methods: {
     async getData() {
-      const response = await axios.get("/");
-
-      if (response.status === 200) {
+      try {
+        const response = await axios.get("/");
         this.despesas = response.data.despesas;
         this.usuarios = response.data.usuarios;
-      } else {
-        console.error("Ocorreu um erro ao acessar a API");
+      } catch (error) {
+        console.log("Erro detecado:" + error.response.status);
       }
     },
   },
