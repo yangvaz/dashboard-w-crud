@@ -4,28 +4,25 @@ namespace App\Http\Controllers\ApiCrud;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Models\Despesa;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $despesas = [
-            [
-                'id' => 1,
-                'nomeUsuario' => 'José Maria',
-                'descricaoDespesa' => 'Curso Vue',
-                'data' => '23-03-2021',
-                'imagemAnexo' => 'url...',
-                'custoDespesa' => '31',
-            ]
-        ];
+        $despesas = Despesa::all();
 
         $usuarios = [
             [
                 'id' => 1,
                 'nomeUsuario' => 'José Maria',
                 'senhaUsuario' => '123456'
-            ]
+            ],
+            [
+                'id' => 2,
+                'nomeUsuario' => 'Luiza Freitas',
+                'senhaUsuario' => 'Lu@Freitas'
+            ],
         ];
 
         return response()->json([

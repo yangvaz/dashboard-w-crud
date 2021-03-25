@@ -18,18 +18,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="data in data" :key="data.id">
+          <tr v-for="item in data" :key="item.id">
             <th scope="row">
-              <span class="userDetails"> {{ data.id }} </span>
+              <span class="itemDetails"> {{ item.id }} </span>
             </th>
             <td>
-              <span class="userDetails"> {{ data.nomeUsuario }} </span>
+              <span class="itemDetails"> {{
+                description === "Despesas" ? item.nome
+                  : item.nomeUsuario
+                }} </span>
             </td>
             <td>
-              <span class="userDetails"> {{ data.descricaoDespesa }} </span>
+              <span class="itemDetails">
+                {{
+                  description === "Despesas" ? item.descricaoDespesa
+                    : item.senhaUsuario
+                }}
+              </span>
             </td>
             <td>
-              <span class="userDetails"> {{ data.custoDespesa }} </span>
+              <span class="itemDetails"> {{ item.custoDespesa }} </span>
             </td>
           </tr>
         </tbody>
@@ -58,7 +66,7 @@ export default {
   border-radius: 5px;
   background-color: #fff;
 
-  .userDetails {
+  .itemDetails {
     font-size: 0.75rem;
   }
 }

@@ -5,7 +5,7 @@
         <img src="https://avatars.githubusercontent.com/u/20269645?v=4" />
       </div>
       <div class="info">
-        <p>Yan Garcia</p>
+        <span class="username">Yan Garcia</span>
         <span> Online </span>
       </div>
     </div>
@@ -57,29 +57,39 @@ export default {
 .sidebarContainer {
   .profile {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
 
-    display: flex;
+    display: block;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
     color: #fff;
 
-    .avatar {
-      margin-right: 0.7rem;
-    }
-
-    .avatar,
-    .info {
+    .info, .avatar {
       display: block;
-
       justify-content: center;
       align-items: center;
+
+      margin-bottom: 1.5rem;
+
+      span, img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 2px;
+      }
+
+      .username {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
     }
 
     .avatar img {
-      width: 90px;
-      height: 90px;
+      width: 150px;
+      height: 150px;
 
       border-radius: 55%;
     }

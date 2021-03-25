@@ -9,10 +9,10 @@
         <div class="row">
           <div class="col-12 ">
             <CardsComponent
-              :type="'Clientes'"
+              :type="'Despesas'"
               :porcentagem="'7%'"
               :icon="'fa-users'"
-              :qtd="'7000'"
+              :qtd="despesas.length"
             />
           </div>
         </div>
@@ -20,10 +20,10 @@
         <div class="row">
           <div class="col-12 ">
             <CardsComponent
-              :type="'Produtos'"
+              :type="'Usuários'"
               :porcentagem="'12%'"
               :icon="'fa-box'"
-              :qtd="'350'"
+              :qtd="usuarios.length"
             />
           </div>
         </div>
@@ -34,7 +34,7 @@
               :type="'Serviços'"
               :porcentagem="'1%'"
               :icon="'fa-store'"
-              :qtd="'250'"
+              :qtd="250"
             />
           </div>
         </div>
@@ -45,7 +45,7 @@
               :type="'Relatórios'"
               :porcentagem="'30%'"
               :icon="'fa-chart-bar'"
-              :qtd="'30'"
+              :qtd="30"
             />
           </div>
         </div>
