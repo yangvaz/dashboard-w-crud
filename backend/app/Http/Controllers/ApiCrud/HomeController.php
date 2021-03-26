@@ -4,7 +4,8 @@ namespace App\Http\Controllers\ApiCrud;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Models\Despesa;
+use App\Models\Despesa;
+use App\Models\Usuario;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,7 @@ class HomeController extends Controller
             [
                 'id' => 1,
                 'nomeUsuario' => 'José Maria',
+                'email' => 'josemaria@gmail.com',
                 'senhaUsuario' => '123456'
             ],
             [

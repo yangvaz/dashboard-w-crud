@@ -7,9 +7,39 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
+
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims() {
+        return [];
+    }
+
+    /**
+    * Get the password for the user.
+    *
+    * @return string
+    */
+    public function getAuthPassword() {
+        return $this->senha;
+    }
+
+    public static function create(Request $request)
+{
+    $user = new User();
+    if (!empty($request->get('email'))) {
+        $user->email = $request->get('email');
+    }
+    if (!empty($request->get('senha'))) {
+        $user->senha = bcrypt($request->get('senha'));
+    }
+    $user->save();
+    return $user;
+}
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +49,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'senha',
     ];
 
     /**
@@ -28,7 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'senha',
         'remember_token',
     ];
 

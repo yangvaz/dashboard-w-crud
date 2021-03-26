@@ -15,6 +15,7 @@ class CreateDespesasTable extends Migration
     {
         Schema::create('despesas', function (Blueprint $table) {
             $table->id();
+            $table->foreign('user_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->string('nome');
             $table->string('descricaoDespesa');
             $table->string('custoDespesa');
